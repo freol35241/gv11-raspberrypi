@@ -1,0 +1,14 @@
+version: '3'
+services:
+  rtl433:
+    image: hertzg/rtl_433:latest
+    restart: always
+    devices:
+      - "/dev/bus/usb"
+    command: ["-Csi", "-Fmqtt://192.168.1.4:1883,user=${MQ_USER},pass=${MQ_PASS},retain=0,devices=GV11/DEVICES/RTL433[/model]"]
+
+  ble2mqtt:
+    image: ghcr.io/freol35241/ble2mqtt:v0.1.0
+    restart: always
+    network_mode: host
+    command: ["192.168.1.4", "1883", "-u${MQ_USER}", "-p${MQ_PASS}", "-bGV11/DEVICES"]
