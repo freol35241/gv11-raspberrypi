@@ -9,8 +9,12 @@ Configuration for the raspberry pi running at GV11.
 ## Setup
 
 * Raspberry Pi OS Lite (Bullseye)
-* docker and docker-compose (https://dev.to/elalemanyo/how-to-install-docker-and-docker-compose-on-raspberry-pi-1mo)
-
+* docker (follow relevant parts of https://dev.to/elalemanyo/how-to-install-docker-and-docker-compose-on-raspberry-pi-1mo)
+* docker-compose
+  ```
+  curl -SL https://github.com/docker/compose/releases/download/{latest_version}/docker-compose-linux-armv7 -o /usr/local/bin/docker-compose
+  chmod +x /usr/local/bin/docker-compose
+  ```
 
 ## Configuration
 
